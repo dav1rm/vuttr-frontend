@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
 import api from '../../services/api';
+import Tool from '../../components/Tool';
 
-import { Container, Toolbar } from './styles';
+import { Container, Toolbar, Button } from './styles';
 
 export default class Main extends Component {
   state = {
@@ -25,32 +26,21 @@ export default class Main extends Component {
         <h1>VUTTR</h1>
         <h3>Very Useful Tools to Remember</h3>
         <Toolbar>
-          <form>
-            <input type="text" placeholder="search" />
-
+          <div className="search-bar">
+            <input className="search" placeholder="search" />
             <label htmlFor="only-tags">
               <input id="only-tags" type="checkbox" /> search in tags only
             </label>
+          </div>
 
-            <button type="submit">Add</button>
-          </form>
+          <Button onClick={() => {}}>
+            <i className="fa fa-plus" />
+            Add
+          </Button>
         </Toolbar>
         <div className="tools">
           {tools.map(tool => (
-            <div>
-              <div className="header">
-                <a href={tool.link}>{tool.title}</a>
-                <button type="submit">remove</button>
-              </div>
-              <div className="content">
-                <p>{tool.description}</p>
-              </div>
-              <div className="footer">
-                {tool.tags.map(tag => (
-                  <span>{tag}</span>
-                ))}
-              </div>
-            </div>
+            <Tool key={tool.id} data={tool} />
           ))}
         </div>
       </Container>
