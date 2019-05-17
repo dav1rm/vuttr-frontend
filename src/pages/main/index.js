@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
 import api from '../../services/api';
-import Tool from '../../components/Tool';
 
-import { Container, Toolbar, Button } from './styles';
+import Tool from '../../components/Tool';
+import Button from '../../components/Button';
+
+import { Container, Toolbar } from './styles';
 
 export default class Main extends Component {
   state = {
@@ -38,10 +40,7 @@ export default class Main extends Component {
             </label>
           </div>
 
-          <Button onClick={() => {}}>
-            <i className="fa fa-plus" />
-            Add
-          </Button>
+          <Button title="Add" onClick={() => {}} faIcon="plus" />
         </Toolbar>
         <div className="tools">
           {tools.map(tool => (

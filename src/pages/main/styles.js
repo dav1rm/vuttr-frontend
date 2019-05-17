@@ -52,23 +52,3 @@ export const Toolbar = styled.div`
     }
   }
 `;
-
-export const Button = styled.button`
-  padding: 5px 15px 5px 15px;
-  color: #fff;
-  font-size: 14px;
-  background-color: #3e50b4;
-  border: 0;
-  border-radius: 2px;
-  transition: background-color 0.3s ease-out;
-  box-shadow: 0px 0px 5px 0px #2323239e;
-
-  i {
-    margin-right: 5px;
-  }
-
-  &:hover {
-    background-color: #2f3e9e;
-    box-shadow: 0px 1px 3px 0px #2323239e;
-  }
-`;

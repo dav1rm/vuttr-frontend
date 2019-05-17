@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -35,19 +35,4 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled.button`
-  padding: 5px 10px 5px 10px;
-  color: #fff;
-  background-color: #3e464c;
-  border: 1px solid transparent;
-  transition: background-color 0.3s ease-out;
-
-  i {
-    margin-right: 5px;
-  }
-
-  &:hover {
-    border: 1px solid #3e50b4;
-    background-color: #363f45;
-  }
-`;
+export default Container;

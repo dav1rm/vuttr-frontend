@@ -1,26 +1,39 @@
 import React from 'react';
+import {
+  string, number, arrayOf, shape,
+} from 'prop-types';
 
-import { Container, Button } from './styles';
+import Button from '../Button';
+import Container from './styles';
 
-// eslint-disable-next-line react/prop-types
-const Tool = ({ data }) => (
+const Tool = ({
+  data: {
+    title, link, description, tags,
+  },
+}) => (
   <Container>
     <div className="header">
-      <a href={data.link}>{data.title}</a>
-      <Button>
-        <i className="fa fa-times" />
-        remove
-      </Button>
+      <a href={link}>{title}</a>
+      <Button outline title="remove" faIcon="times" />
     </div>
     <div className="content">
-      <p>{data.description}</p>
+      <p>{description}</p>
     </div>
     <div className="footer">
-      {data.tags.map(tag => (
-        <span>#{tag}</span>
+      {tags.map(tag => (
+        <span key={tag}>#{tag}</span>
       ))}
     </div>
   </Container>
 );
 
+Tool.propTypes = {
+  data: shape({
+    id: number.isRequired,
+    title: string.isRequired,
+    description: string.isRequired,
+    link: string,
+    tags: arrayOf(string).isRequired,
+  }).isRequired,
+};
 export default Tool;
