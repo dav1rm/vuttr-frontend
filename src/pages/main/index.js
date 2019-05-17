@@ -4,12 +4,14 @@ import api from '../../services/api';
 
 import Tool from '../../components/Tool';
 import Button from '../../components/Button';
+import Modal from '../../components/Modal';
 
 import { Container, Toolbar } from './styles';
 
 export default class Main extends Component {
   state = {
     tools: [],
+    modalOpen: true,
   };
 
   componentDidMount() {
@@ -21,10 +23,19 @@ export default class Main extends Component {
     this.setState({ tools: data });
   };
 
+  handleOpenModal = () => {
+    this.setState({ modalOpen: true });
+  };
+
+  handleCloseModal = () => {
+    this.setState({ modalOpen: false });
+  };
+
   render() {
-    const { tools } = this.state;
+    const { tools, modalOpen } = this.state;
     return (
       <Container>
+        <Modal show={modalOpen} handleClose={this.handleCloseModal} />
         <div className="title">
           <h1>VUTTR</h1>
           <span>Very Useful Tools to Remember</span>
@@ -40,7 +51,7 @@ export default class Main extends Component {
             </label>
           </div>
 
-          <Button title="Add" onClick={() => {}} faIcon="plus" />
+          <Button title="Add" onClick={this.handleOpenModal} faIcon="plus" />
         </Toolbar>
         <div className="tools">
           {tools.map(tool => (
