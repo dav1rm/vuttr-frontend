@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding: 20px;
   margin-bottom: 20px;
   background-color: #3e464c;
-  /* box-shadow: 0px 1px 3px 0px #2323239e; */
+  border-radius: 3px;
 
   .header {
     display: flex;
@@ -39,7 +39,7 @@ export const Button = styled.button`
   padding: 5px 10px 5px 10px;
   color: #fff;
   background-color: #3e464c;
-  border: 0;
+  border: 1px solid transparent;
   transition: background-color 0.3s ease-out;
 
   i {
@@ -47,6 +47,7 @@ export const Button = styled.button`
   }
 
   &:hover {
+    border: 1px solid #3e50b4;
     background-color: #363f45;
   }
 `;
