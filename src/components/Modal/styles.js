@@ -2,76 +2,108 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: ${({ show }) => (show ? 'flex' : 'none')};
+  align-items: center;
+  justify-content: center;
   z-index: 2;
 
   .modal-main {
     color: #fff;
     position: fixed;
-    width: 50%;
+    width: 35%;
     height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     padding: 20px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     background: #363f45;
-    /* box-shadow: 0px 0px 20px 0px #000; */
 
-    b {
-      font-size: 15px;
-      font-weight: bold;
-      padding-bottom: 20px;
-      align-self: center;
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+      font-size: 20px;
+
+      padding-bottom: 25px;
+
+      span {
+        font-weight: bold;
+        align-self: center;
+      }
+
+      button {
+        font-size: 20px;
+        color: #fff;
+        border: none;
+        background-color: transparent;
+
+        &:hover {
+          color: #ccc;
+        }
+      }
+    }
+
+    .remove-content {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      div {
+        display: flex;
+        height: 30px;
+        justify-content: flex-end;
+
+        .cancel {
+          background-color: #777;
+        }
+      }
     }
 
     form {
       display: flex;
       flex-direction: column;
+      margin: 0 20px;
+
+      span {
+        font-size: 14px;
+        padding: 5px 0;
+      }
+
       input {
-        border: 1px solid #d2d2d2;
-        border-radius: 5px;
-        padding: 10px 15px;
-        margin-bottom: 10px;
         flex: 1;
-        &::placeholder {
-          color: #cacaca;
-          font-size: 14px;
-        }
+        border: 1px solid #d2d2d2;
+        border-radius: 2px;
+        padding: 5px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        background: #ccc;
+      }
+
+      textarea {
+        border: 1px solid #d2d2d2;
+        border-radius: 2px;
+        padding: 5px;
+        margin-bottom: 15px;
+        flex: 1;
+        font-size: 16px;
+        resize: none;
+        background: #ccc;
+        font-family: Arial, Helvetica, sans-serif;
       }
 
       div {
         display: flex;
-        height: 40px;
-        justify-content: space-around;
-        button {
-          border: 0;
-          border-radius: 5px;
-          padding: 10px 15px;
-          flex: 1;
-          color: #fff;
-          font-weight: bold;
-          &.success {
-            margin-left: 15px;
-            background: #85c47c;
-            &:hover {
-              background: #7ab572;
-            }
-          }
-          &.default {
-            background: #d2d2d2;
-            &:hover {
-              background: #bfbebe;
-            }
-          }
-        }
+        height: 30px;
+        justify-content: flex-end;
       }
     }
   }

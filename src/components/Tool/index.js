@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  string, number, arrayOf, shape,
+  string, number, arrayOf, shape, func,
 } from 'prop-types';
 
 import Button from '../Button';
@@ -8,13 +8,13 @@ import Container from './styles';
 
 const Tool = ({
   data: {
-    title, link, description, tags,
-  },
+    id, title, link, description, tags,
+  }, handleRemoveTool,
 }) => (
   <Container>
     <div className="header">
       <a href={link}>{title}</a>
-      <Button outline title="remove" faIcon="times" />
+      <Button onClick={() => handleRemoveTool(id)} outline title="remove" faIcon="times" />
     </div>
     <div className="content">
       <p>{description}</p>
@@ -35,5 +35,10 @@ Tool.propTypes = {
     link: string,
     tags: arrayOf(string).isRequired,
   }).isRequired,
+  handleRemoveTool: func,
 };
+
+Tool.defaultProps = {
+  handleRemoveTool: () => {}
+}
 export default Tool;

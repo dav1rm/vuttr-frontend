@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import Container from './styles';
 
 const Button = ({
-  faIcon, title, onClick, outline,
-}) => (
-  <Container type="button" onClick={onClick} outline={outline}>
+  faIcon, title, onClick, outline, cancel,
+}, ...rest) => (
+  <Container onClick={onClick} outline={outline} cancel={cancel} {...rest}>
     {!!faIcon && <i className={`fa fa-${faIcon}`} />}
     {title}
   </Container>
@@ -15,6 +15,7 @@ const Button = ({
 Button.propTypes = {
   faIcon: PropTypes.string,
   outline: PropTypes.bool,
+  cancel: PropTypes.bool,
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func,
 };
@@ -22,6 +23,7 @@ Button.propTypes = {
 Button.defaultProps = {
   faIcon: '',
   outline: false,
+  cancel: false,
   onClick: () => {},
 };
 

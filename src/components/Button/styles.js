@@ -9,6 +9,7 @@ const Container = styled.button`
   border-radius: 2px;
   transition: background-color 0.3s ease-out;
 
+  margin-right: ${({ outline }) => (outline ? '10px' : '0px')};
   box-shadow: ${({ outline }) => (outline ? 'none' : '0px 0px 5px 0px #2323239e')};
 
   i {
