@@ -39,6 +39,6 @@ Tool.propTypes = {
 };
 
 Tool.defaultProps = {
-  handleRemoveTool: () => {}
-}
+  handleRemoveTool: () => {},
+};
 export default Tool;
